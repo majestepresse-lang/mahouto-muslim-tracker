@@ -255,6 +255,18 @@ function toggle(button){
         button.innerHTML="⬜";
     }
 }
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/service-worker.js")
+        .then(() => {
+            console.log("Service Worker enregistré");
+        })
+        .catch((error) => {
+            console.log("Erreur Service Worker :", error);
+        });
+    });
+}
 </script>
 
 </body>
